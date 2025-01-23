@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./Log_In.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-journal-whills"></i>
+            </div>
+            <h1>Welcome back</h1>
+            <p>Enter your credentials to access your account</p>
+        </div>
+
+        <form id="loginForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required>
+                <div class="error" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <i class="far fa-eye" id="togglePassword" onclick="togglePasswordVisibility()"></i>
+                </div>
+                <div class="error" id="passwordError">Please enter your password</div>
+            </div>
+
+            <div class="remember-forgot">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+
+            <button type="submit">
+                <i class="fas fa-sign-in-alt"></i>
+                Sign In
+            </button>
+        </form>
+
+        <div class="social-login">
+            <p>Or continue with</p>
+            <div class="social-buttons">
+                <div class="social-button">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="social-button">
+                    <i class="fab fa-apple"></i>
+                </div>
+                <div class="social-button">
+                    <i class="fab fa-facebook"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="signup-link">
+            Don't have an account? <a href="../Sign Up/Sign_Up.html">Sign up</a>
+        </div>
+    </div>
+
+
+  <script src="./Log_In.js"></script>
+</body>
+</html>

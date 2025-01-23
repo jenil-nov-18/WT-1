@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal template</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./template.css">
+</head>
+<body class="min-h-screen transition-colors duration-200">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header Section -->
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-3xl font-bold mb-2">Guided Journaling Templates</h1>
+                <p class="text-gray-600 dark:text-gray-300">Discover prompts and exercises tailored to your journey</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <svg id="moonIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                    </svg>
+                    <svg id="sunIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                </button>
+                <button id="favoriteTemplates" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    Favorites
+                </button>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="mb-8">
+            <div class="flex flex-col md:flex-row gap-4 mb-4">
+                <div class="relative flex-grow">
+                    <input type="text" id="searchTemplates" placeholder="Search templates..." class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600">
+                    <svg class="w-5 h-5 absolute right-3 top-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+                <select id="difficultyFilter" class="px-4 py-2 rounded-lg border focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600">
+                    <option value="all">All Difficulties</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+
+            <!-- Categories Filter -->
+            <div class="flex flex-wrap gap-2">
+                <button class="category-pill active px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-category="all">All Templates</button>
+                <button class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-category="gratitude">Gratitude</button>
+                <button class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-category="reflection">Self-Reflection</button>
+                <button class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-category="goals">Goals</button>
+                <button class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-category="anxiety">Anxiety Management</button>
+                <button class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-category="mindfulness">Mindfulness</button>
+                <button class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-category="creativity">Creative Writing</button>
+            </div>
+        </div>
+
+        <!-- Templates Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Gratitude Template -->
+            <div class="template-card rounded-lg border p-6 shadow-sm" data-category="gratitude" data-difficulty="beginner">
+                <span class="difficulty-badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100">Beginner</span>
+                <h3 class="text-xl font-semibold mb-3">Daily Gratitude</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Start your day by acknowledging the positive aspects of your life.</p>
+                <div class="flex flex-wrap gap-1 mb-4">
+                    <span class="prompt-tag bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100">5-10 minutes</span>
+                    <span class="prompt-tag bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100">Morning routine</span>
+                </div>
+                <button class="btn-primary bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-200 w-full" onclick="openTemplate('gratitude')">Start Writing</button>
+            </div>
+
+            <!-- Self-Reflection Template -->
+            <div class="template-card rounded-lg border p-6 shadow-sm" data-category="reflection" data-difficulty="intermediate">
+                <span class="difficulty-badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100">Intermediate</span>
+                <h3 class="text-xl font-semibold mb-3">Deep Self-Reflection</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Explore your thoughts, emotions, and personal growth journey.</p>
+                <div class="flex flex-wrap gap-1 mb-4">
+                    <span class="prompt-tag bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100">15-20 minutes</span>
+                    <span class="prompt-tag bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100">Evening practice</span>
+                </div>
+                <button class="btn-primary bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-200 w-full" onclick="openTemplate('reflection')">Start Writing</button>
+            </div>
+
+            <!-- Mindfulness Template -->
+            <div class="template-card rounded-lg border p-6 shadow-sm" data-category="mindfulness" data-difficulty="beginner">
+                <span class="difficulty-badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100">Beginner</span>
+                <h3 class="text-xl font-semibold mb-3">Present Moment Awareness</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Practice mindfulness through guided writing exercises.</p>
+                <div class="flex flex-wrap gap-1 mb-4">
+                    <span class="prompt-tag bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100">10 minutes</span>
+                    <span class="prompt-tag bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100">Any time</span>
+                </div>
+                <button class="btn-primary bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-200 w-full" onclick="openTemplate('mindfulness')">Start Writing</button>
+            </div>
+
+            <!-- Creative Writing Template -->
+            <div class="template-card rounded-lg border p-6 shadow-sm" data-category="creativity" data-difficulty="advanced">
+                <span class="difficulty-badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100">Advanced</span>
+                <h3 class="text-xl font-semibold mb-3">Creative Expression</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Unleash your creativity through guided writing prompts.</p>
+                <div class="flex flex-wrap gap-1 mb-4">
+                    <span class="prompt-tag bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100">20+ minutes</span>
+                    <span class="prompt-tag bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100">Creative flow</span>
+                </div>
+                <button class="btn-primary bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-200 w-full" onclick="openTemplate('creativity')">Start Writing</button>
+            </div>
+        </div>
+
+        [Previous code remains the same until the timer container]
+
+        <!-- Timer Container -->
+        <div id="timerContainer" class="timer-container">
+            <div class="flex items-center gap-3">
+                <span id="timerDisplay" class="text-xl font-bold">00:00</span>
+                <button id="pauseTimer" class="p-1 rounded-full hover:bg-white/20">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m-9-3a9 9 0 1118 0 9 9 0 01-18 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Template Modal -->
+        <div id="templateModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-2xl w-full mx-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 id="templateTitle" class="text-2xl font-bold"></h2>
+                    <button onclick="closeTemplate()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mood Selector -->
+                <div class="mood-selector mb-6">
+                    <button class="mood-option bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100">😊 Happy</button>
+                    <button class="mood-option bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100">😌 Calm</button>
+                    <button class="mood-option bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100">😔 Sad</button>
+                    <button class="mood-option bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100">😤 Anxious</button>
+                </div>
+
+                <!-- Template Content -->
+                <div id="gratitudeTemplate" class="template-content">
+                    <div class="space-y-4">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What are three things you're grateful for today?</label>
+                            <textarea class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500" rows="3"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Who is someone that made a positive impact on your day?</label>
+                            <textarea class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500" rows="2"></textarea>
+                        </div>
+                        <div class="completion-progress">
+                            <div class="completion-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mindfulnessTemplate" class="template-content">
+                    <div class="space-y-4">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Take a deep breath. What sensations do you notice in your body right now?</label>
+                            <textarea class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500" rows="3"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What sounds, sights, or smells are you aware of in this moment?</label>
+                            <textarea class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500" rows="2"></textarea>
+                        </div>
+                        <div class="completion-progress">
+                            <div class="completion-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="creativityTemplate" class="template-content">
+                    <div class="space-y-4">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Write a short story inspired by this prompt: "The door opened to reveal..."</label>
+                            <textarea class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500" rows="6"></textarea>
+                        </div>
+                        <div class="completion-progress">
+                            <div class="completion-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <button id="startTimer" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Start Timer
+                        </button>
+                    </div>
+                    <div class="flex gap-3">
+                        <button onclick="closeTemplate()" class="px-4 py-2 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">Cancel</button>
+                        <button id="saveEntry" class="btn-primary bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Save Entry</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="./template.js"></script>
+</body>
+</html>

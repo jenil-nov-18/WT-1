@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="Sign_Up.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Create your account</h1>
+            <p>Start your mental health journey today</p>
+        </div>
+
+        <form id="signupForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required>
+                <div class="error" id="nameError">Please enter your full name</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required>
+                <div class="error" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+                <div class="error" id="passwordError">Password must be at least 8 characters</div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" required>
+                <div class="error" id="confirmPasswordError">Passwords do not match</div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+            </div>
+
+            <button type="submit">Create Account</button>
+        </form>
+        <div class="flash-message" id="flashMessage">Account created successfully!</div> 
+          
+        <div class="login-link">
+            Already have an account? <a href="../Log_In/Log_In.html">Log in</a>
+        </div>
+    </div>  
+    
+
+   <script src="Sign_Up.js"></script>
+</body>
+</html>

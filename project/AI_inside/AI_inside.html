@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai inside</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <link rel="stylesheet" href="./AI_inside.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <h1>AI Insights Dashboard</h1>
+                <div class="date-range">Last 30 Days</div>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span class="theme-icon">🌗</span>
+                <span class="theme-text">Toggle Theme</span>
+            </button>
+        </header>
+
+        <div class="grid">
+            <div class="card mood-chart">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Mood Patterns Analysis</h2>
+                        <p class="card-subtitle">Track your emotional journey over time</p>
+                    </div>
+                </div>
+                <canvas id="moodChart" ></canvas>
+            </div>
+
+            <div class="card stats-card">
+                <div class="card-header">
+                    <h2 class="card-title">Key Insights</h2>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Average Mood</span>
+                    <span class="stat-value">7.5</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Best Day</span>
+                    <span class="stat-value">Tuesday</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Mood Stability</span>
+                    <span class="stat-value">85%</span>
+                </div>
+            </div>
+
+            <div class="card word-cloud-card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Common Themes</h2>
+                        <p class="card-subtitle">Frequently occurring topics in your journal</p>
+                    </div>
+                </div>
+                <div id="wordCloud" class="word-cloud"></div>
+            </div>
+
+            <div class="card recommendations-card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Personalized Recommendations</h2>
+                        <p class="card-subtitle">Based on your journal patterns</p>
+                    </div>
+                </div>
+                <div id="recommendationsList" class="recommendations-list"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="./AI_inside.js"></script>
+</body>
+</html>

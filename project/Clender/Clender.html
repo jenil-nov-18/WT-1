@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clender</title>
+    <link rel="stylesheet" href="Clender.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>Mindful Journal</h1>
+            <div class="controls">
+                <button class="btn view-toggle" id="viewToggle">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Calendar View</span>
+                </button>
+                <button class="btn theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="search-bar">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search your journal entries..." id="searchInput">
+        </div>
+
+        <div class="filters" id="filters">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-globe"></i> All Entries
+            </button>
+            <button class="filter-btn" data-filter="happy">
+                <i class="fas fa-smile"></i> Happy
+            </button>
+            <button class="filter-btn" data-filter="calm">
+                <i class="fas fa-peace"></i> Calm
+            </button>
+            <button class="filter-btn" data-filter="neutral">
+                <i class="fas fa-meh"></i> Neutral
+            </button>
+            <button class="filter-btn" data-filter="anxious">
+                <i class="fas fa-frown"></i> Anxious
+            </button>
+            <button class="filter-btn" data-filter="sad">
+                <i class="fas fa-sad-tear"></i> Sad
+            </button>
+        </div>
+
+        <div id="calendarView" class="calendar-view">
+            <div class="calendar-header">
+                <h2 id="currentMonth">January 2025</h2>
+                <div class="calendar-nav">
+                    [Previous HTML and CSS code remains exactly the same until the calendar navigation buttons...]
+
+                    <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                    <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+
+        <div id="listView" class="list-view" style="display: none;"></div>
+    </div>
+    
+    <script src="Clender.js"></script>
+</body>
+</html>

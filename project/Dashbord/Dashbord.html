@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="Dashbord.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <h1 class="header-title">Dashboard</h1>
+                <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+            </div>
+            <div class="header-right">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-cog"></i>
+                <div class="profile-button">
+                    <div class="avatar">JD</div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <a href="../Jornal_taker/Jornal_taker.html"><button class="action-button">
+                <div class="action-icon" style="background-color: var(--primary);">
+                    <i class="fas fa-plus"></i>
+                </div>
+                New Journal Entry
+            </button></a>
+            <a href="../Template/template.html"><button class="action-button">
+                <div class="action-icon" style="background-color: var(--primary);">
+                    <i class="fas fa-plus"></i>
+                </div>
+                New Journal Template
+            </button></a>
+           <a href="../Clender/Clender.html" ><button class="action-button">
+                <div class="action-icon" style="background-color: var(--success);">
+                    <i class="fas fa-calendar"></i>
+                </div>
+                View Calendar
+            </button></a>
+            <a href="../AI_inside/AI_inside.html"><button class="action-button">
+                <div class="action-icon" style="background-color: var(--warning);">
+                    <i class="fas fa-brain"></i>
+                </div>
+                AI Insights
+            </button></a>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Mood Chart -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Mood Trends</h2>
+                    <select id="timeRange">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                    </select>
+                </div>
+                <div class="chart-container">
+                    <canvas id="moodChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Entries -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Recent Entries</h2>
+                </div>
+                <div class="entry-list">
+                    <div class="entry-item">
+                        <h3 class="entry-title">Finding Peace in Chaos</h3>
+                        <div class="entry-date">Jan 16, 2025</div>
+                        <span class="mood-tag">Positive</span>
+                    </div>
+                    <div class="entry-item">
+                        <h3 class="entry-title">Reflecting on Growth</h3>
+                        <div class="entry-date">Jan 15, 2025</div>
+                        <span class="mood-tag">Neutral</span>
+                    </div>
+                    <div class="entry-item">
+                        <h3 class="entry-title">Overcoming Challenges</h3>
+                        <div class="entry-date">Jan 14, 2025</div>
+                        <span class="mood-tag">Positive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Entries</div>
+                <div class="stat-value">
+                    <i class="fas fa-book"></i>
+                    247
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Current Streak</div>
+                <div class="stat-value">
+                    <i class="fas fa-fire"></i>
+                    12 days
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Average Mood</div>
+                <div class="stat-value">
+                    😊 7.8/10
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    
+    <script src="./Dashbord.js"></script>
+</body>
+</html>
